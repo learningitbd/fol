@@ -1,0 +1,53 @@
+{
+  "entities": {
+    "Fruit": {
+      "title": "Fruit",
+      "description": "Details of a seasonal orchard fruit item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "englishName": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "unit": { "type": "string" },
+        "image": { "type": "string" },
+        "category": { "type": "string" },
+        "rating": { "type": "number" },
+        "stock": { "type": "number" },
+        "benefits": { "type": "array" },
+        "origin": { "type": "string" },
+        "vitamins": { "type": "array" },
+        "isOrganic": { "type": "boolean" },
+        "isPopular": { "type": "boolean" }
+      },
+      "required": ["id", "name", "englishName", "description", "price", "unit", "image", "category", "rating", "stock", "origin"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Details of a fruit purchase order",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "details": { "type": "object" },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "deliveryFee": { "type": "number" },
+        "total": { "type": "number" },
+        "status": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "required": ["id", "details", "items", "subtotal", "deliveryFee", "total", "status", "date"]
+    }
+  },
+  "firestore": {
+    "fruits": {
+      "schema": "Fruit",
+      "description": "Store dynamic list of available premium seasonal fruits"
+    },
+    "orders": {
+      "schema": "Order",
+      "description": "Customer order details placed via online form"
+    }
+  }
+}
